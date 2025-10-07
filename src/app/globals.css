@@ -1,0 +1,44 @@
+/* Import fonts FIRST — must be at the very top */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+/* Tailwind base import */
+@import "tailwindcss";
+
+/* Light mode colors */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* Dark mode colors */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* Tailwind theme customization */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Font families */
+  --font-sans: 'Inter', sans-serif;
+  /* --font-heading: 'Bebas Neue', sans-serif; */
+}
+
+/* General body styles */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+}
+
+/* Optional heading styling to use the standout Bebas Neue font */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: 0.5px;
+}
