@@ -6,11 +6,13 @@ import Hero from "./components/Hero";
 import MatchesSection from "./components/MatchesSection";
 import KitsShowcase from "./components/KitsShowcase";
 import Sponsors from "./components/Sponsors";
+import IntroLoader from "./components/IntroLoader";
 
 export default function Home() {
   return (
     <div className="overflow-hidden">
       {/* 🏁 Hero Section */}
+      <IntroLoader>
       <Hero />
   {/* 🏟️ Matches */}
       <MatchesSection />
@@ -76,6 +78,7 @@ export default function Home() {
           Join the Fan Club
         </motion.button>
       </section>
+      </IntroLoader>
     </div>
   );
 }
