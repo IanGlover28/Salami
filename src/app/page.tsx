@@ -12,7 +12,9 @@ export default function Home() {
     <div className="overflow-hidden">
       {/* 🏁 Hero Section */}
       <Hero />
-
+  {/* 🏟️ Matches */}
+      <MatchesSection />
+      <KitsShowcase />
       {/* ⚽ About Salami FC */}
       <section className="py-16 bg-gray-900">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 px-6">
@@ -34,25 +36,11 @@ export default function Home() {
             />
           </motion.div>
 
-          {/* 🏆 Text */}
-          <motion.p
-            className="flex-1 text-gray-300 leading-relaxed text-lg"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            Salami FC is more than a football club: it’s a family bound by
-            passion, resilience and the pursuit of excellence. From local
-            leagues to international arenas, our mission is to inspire through
-            the beautiful game.
-          </motion.p>
+       
         </div>
       </section>
 
-      {/* 🏟️ Matches */}
-      <MatchesSection />
-      <KitsShowcase />
+    
 
 
       <Sponsors />

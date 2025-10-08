@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Facebook, Twitter, Instagram, Youtube } from "lucide-react";
 import Link from "next/link";
 
@@ -23,7 +24,13 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10 text-center md:text-left">
         {/* Logo & Intro */}
         <div>
-          <h2 className="text-3xl font-extrabold text-amber-300 mb-2">SalamiFC</h2>
+<Image
+    src="/Salami-logo.png"
+    alt="Salami FC Logo"
+    width={128}
+    height={128}
+    className="w-32 h-auto mb-2"
+  />
           <p className="text-gray-400 text-sm">
          The official home of Salami Football Club.
           </p>

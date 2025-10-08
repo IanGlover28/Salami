@@ -75,7 +75,7 @@ export default function ManagementClient() {
       animate={{ opacity: 1 }}
       transition={{ delay: 0.8 }}
     >
-      <h2 className="text-4xl font-bold text-amber-300 mb-4">
+      <h2 className="text-3xl font-bold text-white mb-4">
         Executive Management
       </h2>
       <p className="text-gray-400 max-w-2xl mx-auto">

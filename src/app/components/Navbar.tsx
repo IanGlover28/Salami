@@ -10,7 +10,7 @@ const navLinks = [
   { name: "Store", path: "/kits" },
   { name: "Fixtures", path: "/fixtures" },
   { name: "Management", path: "/Management" },
-  { name: "Sponsorships", path: "/sponsorship" },
+  // { name: "Sponsorships", path: "/sponsorship" },
   { name: "Team", path: "/team" },
 ];
 
@@ -32,7 +32,7 @@ export default function Navbar() {
         >
           ⚽ Welcome to <span className="text-amber-300">Salami FC</span> — Passion. Pride. Performance. ⚽
           &nbsp;&nbsp;|&nbsp;&nbsp; Stay tuned for the next big matchday!
-          &nbsp;&nbsp;|&nbsp;&nbsp; Visit our Store for exclusive kits 🛍️
+          &nbsp;&nbsp;|&nbsp;&nbsp; Visit our Store for exclusive kits or Contact Shamoo Sports Wear @0277089200
         </motion.div>
       </div>
 
@@ -46,7 +46,7 @@ export default function Navbar() {
         {/* 🏆 Logo */}
         <Link href="/" className="flex items-center space-x-2">
           <Image
-            src="/salami-logo.png"
+            src="/Salami-logo.png"
             alt="Salami FC Logo"
             width={120}
             height={40}
