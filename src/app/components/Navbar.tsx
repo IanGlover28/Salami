@@ -108,7 +108,7 @@ export default function Navbar() {
               ))}
 
               <Link
-                href="/signup"
+                href="/"
                 className="bg-purple-700 text-white font-semibold px-6 py-2 rounded-full hover:bg-violet-950 transition-all duration-300"
                 onClick={() => setMenuOpen(false)}
               >

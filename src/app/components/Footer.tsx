@@ -29,7 +29,7 @@ export default function Footer() {
     alt="Salami FC Logo"
     width={128}
     height={128}
-    className="w-32 h-auto mb-2"
+    className="w-32 h-auto mb-2 mx-auto md:mx-0"
   />
           <p className="text-gray-400 text-sm">
          The official home of Salami Football Club.
