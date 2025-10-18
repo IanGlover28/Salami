@@ -25,7 +25,7 @@ export default function Footer() {
         {/* Logo & Intro */}
         <div>
 <Image
-    src="/Salami-logo.png"
+    src="/Salami.png"
     alt="Salami FC Logo"
     width={128}
     height={128}

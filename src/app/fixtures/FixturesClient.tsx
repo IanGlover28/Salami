@@ -96,22 +96,22 @@ const allMatches: Match[] = [
 ];
 
 const teamRoster: Player[] = [
-    { number: 1, name: "J. Martinez", position: "Goalkeeper", isStarter: true },
-    { number: 5, name: "K. Lee", position: "Left Back", isStarter: true },
-    { number: 4, name: "A. Davies", position: "Center Back", isStarter: true },
-    { number: 6, name: "S. Khan", position: "Center Back", isStarter: true },
-    { number: 2, name: "B. Smith", position: "Right Back", isStarter: true },
-    { number: 8, name: "M. Silva", position: "Midfielder (CM)", isStarter: true },
-    { number: 10, name: "R. Jones", position: "Midfielder (CM)", isStarter: true },
-    { number: 11, name: "E. Chen", position: "Winger (LW)", isStarter: true },
-    { number: 7, name: "L. Williams", position: "Winger (RW)", isStarter: true },
-    { number: 9, name: "O. Nkosi", position: "Striker (ST)", isStarter: true },
-    { number: 19, name: "P. Sharma", position: "Striker (ST)", isStarter: true },
+    { number: 1, name: "J. Sammy", position: "Goalkeeper", isStarter: true },
+    { number: 5, name: "K. Yeboah", position: "Left Back", isStarter: true },
+    { number: 4, name: "T. Addo", position: "Center Back", isStarter: true },
+    { number: 12, name: "S. Okine", position: "Center Back", isStarter: true },
+    { number: 3, name: "B. Ezekiel", position: "Right Back", isStarter: true },
+    { number: 8, name: "M. Frimpong", position: "Midfielder (CM)", isStarter: true },
+    { number: 18, name: "R. Nii", position: "Midfielder (CM)", isStarter: true },
+    { number: 11, name: "E. Williams", position: "Winger (LW)", isStarter: true },
+    { number: 7, name: "L. Amoani", position: "Winger (RW)", isStarter: true },
+    { number: 9, name: "O. Stephen", position: "Striker (ST)", isStarter: true },
+    { number: 17, name: "P. Osei", position: "Striker (ST)", isStarter: true },
     // Substitutes/Other Players
-    { number: 12, name: "T. Henderson", position: "Goalkeeper", isStarter: false },
-    { number: 14, name: "J. Adams", position: "Midfielder", isStarter: false },
-    { number: 21, name: "C. Green", position: "Defender", isStarter: false },
-    { number: 27, name: "V. Rossi", position: "Forward", isStarter: false },
+    { number: 2, name: "T. Desmond", position: "Goalkeeper", isStarter: false },
+    { number: 14, name: "J. Emma", position: "Midfielder", isStarter: false },
+    { number: 21, name: "C. Joshua", position: "Defender", isStarter: false },
+    { number: 27, name: "V. Eugene", position: "Forward", isStarter: false },
 ];
 
 // --- Helper Components ---
@@ -157,7 +157,7 @@ const MatchCard = ({ match, index }: { match: Match, index: number }) => {
                 {/* Our Team */}
                 <div className="flex flex-col items-center flex-1">
                     <Image
-                        src="/salami-logo.png" // Replace with your team logo path
+                        src="/salami.png" // Replace with your team logo path
                         alt="Our Team"
                         width={50}
                         height={50}
