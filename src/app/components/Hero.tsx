@@ -6,32 +6,37 @@ import Image from "next/image";
 const newsFeed = [
   {
     id: 1,
-    title: "Salami FC climbs to 2nd in Division One League standings",
-    image: "/team/scores.jpeg",
+    title: "Salami FC climbs to 2nd in 3rd Division League standings",
+    video: "/videos/match00.mp4",
+    poster: "/match00.png",
     timeAgo: "10 hours ago",
   },
   {
     id: 2,
     title: "Big Moves Ahead: Chairman Walker of Salami FC Meets European Scout",
-    image: "/staff2.jpeg",
+    video: "/ad.mp4",
+    poster: "/staff2.jpeg",
     timeAgo: "1 day ago",
   },
   {
     id: 3,
     title: "GFA commends Salami FC for community engagement",
-    image: "/team/team2.jpeg",
+    video: "/ad.mp4",
+    poster: "/team/team2.jpeg",
     timeAgo: "3 days ago",
   },
   {
     id: 4,
     title: "Salami FC gears up for Division 2 Cup semi-finals",
-    image: "/team/team10.jpeg",
+    video: "/ad.mp4",
+    poster: "/team/team10.jpeg",
     timeAgo: "5 days ago",
   },
   {
     id: 5,
     title: "Salami FC's Media Team Shares Insights After Stellar Performances",
-    image: "/staff6.jpeg",
+    video: "/videos/news00.mp4",
+    poster: "/staff6.jpeg",
     timeAgo: "1 week ago",
   },
 ];
@@ -54,24 +59,26 @@ export default function Hero() {
         {newsFeed.map((news) => (
           <motion.div
             key={news.id}
-            className="bg-amber-300 text-white  overflow-hidden shadow-md transition-transform duration-300 cursor-pointer"
+            className="bg-amber-300 text-white overflow-hidden shadow-md transition-transform duration-300 cursor-pointer"
             variants={{
               hidden: { opacity: 0, y: 30 },
               visible: { opacity: 1, y: 0 },
             }}
             whileHover={{ scale: 1.03 }}
           >
-            <div className="relative h-60 w-full">
-              <Image
-                src={news.image}
-                alt={news.title}
-                fill
-                className="object-cover"
-              />
+            <div className="relative w-full aspect-video  overflow-hidden">
+              <video
+                className="w-full h-full object-cover"
+                controls
+                poster={news.poster}
+              >
+                <source src={news.video} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
             <div className="p-4">
-              <h3 className="text-base font-bold mb-5">{news.title}</h3>
-            <p className="text-sm text-gray-500">{news.timeAgo}</p>
+              <h3 className="text-base font-bold mb-2">{news.title}</h3>
+              <p className="text-sm text-gray-500">{news.timeAgo}</p>
             </div>
           </motion.div>
         ))}

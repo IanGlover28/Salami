@@ -115,7 +115,7 @@ export default function KitsShowcase() {
                   }}
                   className={`h-3 rounded-full transition-all duration-300 ${
                     index === currentSlide
-                      ? "bg-amber-300 w-8"
+                      ? "bg-purple-300 w-8"
                       : "bg-white/40 hover:bg-white/80 w-3"
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
@@ -145,7 +145,7 @@ export default function KitsShowcase() {
         >
           <button
             onClick={handleSlideClick}
-            className="bg-amber-300 hover:bg-amber-400 text-black font-bold px-10 py-4 rounded-full text-lg transition-all duration-300 inline-flex items-center space-x-2"
+            className="bg-purple-900 hover:bg-purple-400 text-black font-bold px-10 py-4 rounded-full text-lg transition-all duration-300 inline-flex items-center space-x-2"
           >
             <Shirt className="w-6 h-6" />
             <span>Buy Now</span>

@@ -30,9 +30,9 @@ export default function Navbar() {
             ease: "linear",
           }}
         >
-          ⚽ Welcome to <span className="text-amber-300">Salami FC</span> — Passion. Pride. Performance. ⚽
+          ⚽ Welcome to The Official website of <span className="text-amber-300">Salami Rangers FC</span> — Passion. Pride. Performance. ⚽
           &nbsp;&nbsp;|&nbsp;&nbsp; Stay tuned for the next big matchday!
-          &nbsp;&nbsp;|&nbsp;&nbsp; Visit our Store for exclusive kits or Contact Shamoo Sports Wear @0277089200
+          &nbsp;&nbsp;|&nbsp;&nbsp; Visit our Store for exclusive kits or Contact Shamoo Sports Wear <a href="tel:+233277089200">+233 27 708 9200</a>
         </motion.div>
       </div>
 
