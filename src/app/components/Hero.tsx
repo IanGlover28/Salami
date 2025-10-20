@@ -1,88 +1,199 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { useRef } from "react";
 
-const newsFeed = [
+// Define the type for a news item for better type safety
+type NewsItem = {
+  id: number;
+  title: string;
+  video: string;
+  poster: string;
+  timeAgo: string; // Renamed to date for consistency with screenshot
+  date: string;
+  category: string;
+};
+
+// Updated newsFeed data to match the screenshot structure more closely
+const newsFeed: NewsItem[] = [
   {
     id: 1,
-    title: "Salami FC climbs to 2nd in 3rd Division League standings",
+    title: "REACTION: IMPRESSIVE GOOAL FROM SAMMY",
     video: "/videos/match00.mp4",
     poster: "/match00.png",
-    timeAgo: "10 hours ago",
+    timeAgo: "10 hours ago", // Keeping this field just in case
+    date: "19/10/2025",
+    category: "MATCH REACTION",
   },
   {
     id: 2,
-    title: "Big Moves Ahead: Chairman Walker of Salami FC Meets European Scout",
-    video: "/ad.mp4",
-    poster: "/staff2.jpeg",
+    title: "MEDIA: SALAMI FC's MEDIA TEAM INTERVIEW",
+    video: "/videos/news00.mp4",
+    poster: "/staff6.jpeg", // Replace with a relevant image path
     timeAgo: "1 day ago",
+    date: "19/10/2025",
+    category: "MEDIA INTERVIEW",
   },
   {
     id: 3,
-    title: "GFA commends Salami FC for community engagement",
+    title: "TRAINING: SALAMI FC TRAINING SESSION HIGHLIGHTS",
     video: "/ad.mp4",
-    poster: "/team/team2.jpeg",
+    poster: "/team/team2.jpeg", // Replace with a relevant image path
     timeAgo: "3 days ago",
+    date: "19/10/2025",
+    category: "TRAINING SESSION",
   },
   {
     id: 4,
-    title: "Salami FC gears up for Division 2 Cup semi-finals",
+    title: "THE HISTORY OF SALAMI FC",
     video: "/ad.mp4",
-    poster: "/team/team10.jpeg",
+    poster: "/team/team10.jpeg", // Replace with a relevant image path
     timeAgo: "5 days ago",
+    date: "18/10/2025",
+    category: "HISTORY",
   },
   {
     id: 5,
-    title: "Salami FC's Media Team Shares Insights After Stellar Performances",
+    title: "NEXT MATCH PREVIEW: SEMI-FINALS",
     video: "/videos/news00.mp4",
-    poster: "/staff6.jpeg",
+    poster: "/staff6.jpeg", // Replace with a relevant image path
     timeAgo: "1 week ago",
+    date: "17/10/2025",
+    category: "NEWS",
   },
 ];
 
 export default function Hero() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const cardWidth = 350; // Approximate card width for scrolling
+
+  const BACKGROUND_IMAGE_PATH = "/hero-bgg.jpg";
+
+  // Function to scroll the container
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const scrollAmount = direction === 'left' ? -cardWidth : cardWidth;
+      // Using 'scrollBy' for relative scrolling
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="min-h-screen bg-amber-300 py-20 px-6 flex flex-col justify-center items-center">
-      <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl w-full"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={{
-          hidden: {},
-          visible: {
-            transition: { staggerChildren: 0.2 },
-          },
-        }}
-      >
-        {newsFeed.map((news) => (
-          <motion.div
-            key={news.id}
-            className="bg-amber-300 text-white overflow-hidden shadow-md transition-transform duration-300 cursor-pointer"
-            variants={{
-              hidden: { opacity: 0, y: 30 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            whileHover={{ scale: 1.03 }}
-          >
-            <div className="relative w-full aspect-video  overflow-hidden">
-              <video
-                className="w-full h-full object-cover"
-                controls
-                poster={news.poster}
+    // Set dark blue background and padding
+    <section 
+      className={`relative py-21 px-6 lg:px-12 bg-cover bg-center bg-fixed`}
+      style={{ backgroundImage: `url(${BACKGROUND_IMAGE_PATH})` }}
+    >
+      <div className="max-w-7xl mx-auto">
+        
+        {/* Header Section: RANGERSTV LATEST & Navigation */}
+        <div className="flex justify-between items-center mb-6 text-white">
+          <h2 className="text-3xl font-light tracking-wider">
+            SALAMITV LATEST
+          </h2>
+          <div className="flex items-center space-x-4">
+            {/* Slideshow Navigation Arrows */}
+            <div className="flex space-x-2 text-gray-400">
+              <button
+                onClick={() => scroll('left')}
+                className="p-2 text-white hover:text-gray-300 transition-colors disabled:opacity-50"
+                aria-label="Previous video"
               >
-                <source src={news.video} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+                <ChevronLeft size={24} />
+              </button>
+              <button
+                onClick={() => scroll('right')}
+                className="p-2 text-white hover:text-gray-300 transition-colors disabled:opacity-50"
+                aria-label="Next video"
+              >
+                <ChevronRight size={24} />
+              </button>
             </div>
-            <div className="p-4">
-              <h3 className="text-base font-bold mb-2">{news.title}</h3>
-              <p className="text-sm text-gray-500">{news.timeAgo}</p>
-            </div>
-          </motion.div>
-        ))}
-      </motion.div>
+            {/* 'ALL VIDEOS' Link */}
+            <Link href="/videos" className="flex items-center text-white hover:text-gray-300 transition-colors group">
+              <span className="text-sm font-extrabold uppercase mr-1">ALL VIDEOS</span>
+              <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+        </div>
+
+        {/* Video Cards Slideshow Container */}
+        <motion.div
+          ref={scrollRef}
+          className="flex space-x-6 pb-4 overflow-x-scroll scrollbar-hide" 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: { staggerChildren: 0.15 },
+            },
+          }}
+        >
+          {newsFeed.map((news) => (
+            <motion.div
+              key={news.id}
+              className="flex-none w-[320px] sm:w-[350px] text-white overflow-hidden transition-transform duration-300"
+              variants={{
+                hidden: { opacity: 0, x: 50 },
+                visible: { opacity: 1, x: 0 },
+              }}
+            >
+              {/* Image/Video Container (NOT clickable to avoid confusing UX) */}
+              <div className="relative w-full aspect-video overflow-hidden">
+                <video
+                  className="w-full h-full object-cover"
+                  controls
+                  poster={news.poster}
+                >
+                  <source src={news.video} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <div className="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">
+                    03:35 {/* Hardcoded time for example */}
+                </div>
+              </div>
+              
+              {/* Text Content Area - WRAPPED IN LINK FOR ROUTING */}
+              <Link 
+                // *** THIS IS THE CRITICAL DYNAMIC ROUTE ***
+                href={`/articles/${news.id}`} 
+                className="block pt-4 pb-2 px-2 hover:opacity-80 transition-opacity"
+              >
+                {/* Date and Category */}
+                <div className="text-xs font-medium text-gray-200 flex space-x-2 mb-1">
+                    <span>{news.date}</span>
+                    <span className="uppercase text-purple-400 border border-purple-400 px-2 py-0.5 rounded-md">
+                        {news.category}
+                    </span>
+                </div>
+                {/* Title and 'Read More' Text */}
+                <h3 className="text-base font-bold mb-1 leading-snug">
+                    {news.title}
+                </h3>
+                <span className="text-sm font-extrabold text-purple-500 hover:text-purple-400 transition-colors mt-1 inline-block">
+                    Read More &rarr;
+                </span>
+              </Link>
+            </motion.div>
+          ))}
+        </motion.div>
+        
+        {/* Optional: Hide scrollbar utility for Tailwind CSS (if needed) */}
+        <style jsx global>{`
+          .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+          }
+          .scrollbar-hide {
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+          }
+        `}</style>
+
+      </div>
     </section>
   );
 }

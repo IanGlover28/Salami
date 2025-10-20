@@ -145,9 +145,8 @@ export default function KitsShowcase() {
         >
           <button
             onClick={handleSlideClick}
-            className="bg-purple-900 hover:bg-purple-400 text-black font-bold px-10 py-4 rounded-full text-lg transition-all duration-300 inline-flex items-center space-x-2"
+            className="bg-purple-700 hover:bg-purple-950 text-white font-bold px-10 py-4 rounded-full text-lg transition-all duration-300 inline-flex items-center space-x-2"
           >
-            <Shirt className="w-6 h-6" />
             <span>Buy Now</span>
           </button>
         </motion.div>

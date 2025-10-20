@@ -38,7 +38,7 @@ export default function Navbar() {
 
       {/* 🟡 Navbar */}
       <motion.nav
-        className="bg-amber-300  flex justify-between items-center px-6 md:px-12 py-3 shadow-lg backdrop-blur-lg"
+        className="bg-amber-400  flex justify-between items-center px-6 md:px-12 py-3 shadow-lg backdrop-blur-lg"
         initial={{ y: -60 }}
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 80 }}
@@ -90,7 +90,7 @@ export default function Navbar() {
         <AnimatePresence>
           {menuOpen && (
             <motion.div
-              className="absolute top-full left-0 w-full bg-amber-300 flex flex-col items-center space-y-6 py-8 text-lg border-t border-purple-700/20 max-h-[80vh] overflow-y-auto"
+              className="absolute top-full left-0 w-full bg-amber-400 flex flex-col items-center space-y-6 py-8 text-lg border-t border-purple-700/20 max-h-[80vh] overflow-y-auto"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}

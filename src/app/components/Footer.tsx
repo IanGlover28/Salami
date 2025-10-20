@@ -31,8 +31,8 @@ export default function Footer() {
     height={128}
     className="w-32 h-auto mb-2 mx-auto md:mx-0"
   />
-          <p className="text-gray-400 text-sm">
-         The official home of Salami Football Club.
+          <p className="text-gray-400 font-extrabold text-sm">
+         The official website of <span className="text-amber-400">Salami</span> Football Club.
           </p>
         </div>
 
