@@ -5,25 +5,25 @@ import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useRef } from "react";
 
-// Define the type for a news item for better type safety
+
 type NewsItem = {
   id: number;
   title: string;
   video: string;
   poster: string;
-  timeAgo: string; // Renamed to date for consistency with screenshot
+  timeAgo: string;
   date: string;
   category: string;
 };
 
-// Updated newsFeed data to match the screenshot structure more closely
+
 const newsFeed: NewsItem[] = [
   {
     id: 1,
     title: "REACTION: IMPRESSIVE GOOAL FROM SAMMY",
     video: "/videos/match00.mp4",
     poster: "/match00.png",
-    timeAgo: "10 hours ago", // Keeping this field just in case
+    timeAgo: "10 hours ago", 
     date: "19/10/2025",
     category: "MATCH REACTION",
   },
@@ -31,7 +31,7 @@ const newsFeed: NewsItem[] = [
     id: 2,
     title: "MEDIA: SALAMI FC's MEDIA TEAM INTERVIEW",
     video: "/videos/news00.mp4",
-    poster: "/staff6.jpeg", // Replace with a relevant image path
+    poster: "/staff6.jpeg",
     timeAgo: "1 day ago",
     date: "19/10/2025",
     category: "MEDIA INTERVIEW",
@@ -40,7 +40,7 @@ const newsFeed: NewsItem[] = [
     id: 3,
     title: "TRAINING: SALAMI FC TRAINING SESSION HIGHLIGHTS",
     video: "/ad.mp4",
-    poster: "/team/team2.jpeg", // Replace with a relevant image path
+    poster: "/team/team2.jpeg", 
     timeAgo: "3 days ago",
     date: "19/10/2025",
     category: "TRAINING SESSION",
@@ -49,7 +49,7 @@ const newsFeed: NewsItem[] = [
     id: 4,
     title: "THE HISTORY OF SALAMI FC",
     video: "/ad.mp4",
-    poster: "/team/team10.jpeg", // Replace with a relevant image path
+    poster: "/team/team10.jpeg", 
     timeAgo: "5 days ago",
     date: "18/10/2025",
     category: "HISTORY",
@@ -58,7 +58,7 @@ const newsFeed: NewsItem[] = [
     id: 5,
     title: "NEXT MATCH PREVIEW: SEMI-FINALS",
     video: "/videos/news00.mp4",
-    poster: "/staff6.jpeg", // Replace with a relevant image path
+    poster: "/staff6.jpeg", 
     timeAgo: "1 week ago",
     date: "17/10/2025",
     category: "NEWS",
@@ -67,21 +67,21 @@ const newsFeed: NewsItem[] = [
 
 export default function Hero() {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const cardWidth = 350; // Approximate card width for scrolling
+  const cardWidth = 350;
 
   const BACKGROUND_IMAGE_PATH = "/hero-bgg.jpg";
 
-  // Function to scroll the container
+
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
       const scrollAmount = direction === 'left' ? -cardWidth : cardWidth;
-      // Using 'scrollBy' for relative scrolling
+  
       scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
 
   return (
-    // Set dark blue background and padding
+   
     <section 
       className={`relative py-21 px-6 lg:px-12 bg-cover bg-center bg-fixed`}
       style={{ backgroundImage: `url(${BACKGROUND_IMAGE_PATH})` }}
