@@ -117,7 +117,7 @@ export default function MatchHeroSection() {
           <div className="flex flex-col items-center">
             {isLastMatch ? (
               <>
-                <span className="text-2xl font-extrabold text-gray-900 leading-none">
+                <span className="text-1xl font-extrabold text-gray-900 leading-none">
                   {matchData.lastMatch.score}
                 </span>
                 <span className="text-xs text-gray-500 mt-2">FINAL</span>
