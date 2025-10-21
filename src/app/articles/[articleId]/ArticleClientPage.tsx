@@ -5,6 +5,7 @@
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 // --- Data Structure (Moved here as data is needed by client components too) ---
 // Define the type for the main article content
@@ -159,14 +160,14 @@ const ContentBlock = ({ block }: { block: ArticleContent }) => {
     case 'quote':
       return (
         <blockquote className="my-8 py-4 border-l-4 border-blue-600 pl-6 bg-gray-50 italic text-lg text-gray-800">
-          <p className="mb-2">"{block.content}"</p>
+          <p className="mb-2">&apos;{block.content}&apos;</p>
           {block.source && <footer className="text-sm font-semibold not-italic mt-2 text-blue-600">— {block.source}</footer>}
         </blockquote>
       );
     case 'image':
       return (
         <div className="my-8 w-full max-w-4xl mx-auto">
-          <img src={block.content} alt={block.source} className="w-full h-auto object-cover rounded-lg shadow-xl" />
+          <Image src={block.content} alt={block.source ?? "Salami FC image"} className="w-full h-auto object-cover rounded-lg shadow-xl" />
           {block.source && (
             <p className="mt-2 text-center text-sm text-gray-500">{block.source}</p>
           )}
@@ -249,7 +250,7 @@ export default function ArticleClientPage({ currentArticleId }: ArticleClientPag
             
             {/* Right Column: Featured Image (Moves up on mobile) */}
             <div className="w-full lg:w-1/3 order-1 lg:order-2">
-              <img
+              <Image
                 src={article.image}
                 alt={`Featured image for ${article.title}`}
                 className="w-full h-auto object-cover rounded-lg shadow-md aspect-[4/3] lg:aspect-[3/4]"
@@ -287,7 +288,7 @@ export default function ArticleClientPage({ currentArticleId }: ArticleClientPag
                 className="block bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group"
               >
                 <div className="relative aspect-video">
-                  <img
+                  <Image
                     src={story.image}
                     alt={story.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

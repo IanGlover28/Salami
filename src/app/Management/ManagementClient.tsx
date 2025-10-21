@@ -83,11 +83,11 @@ export default function ManagementClient() {
 
             <div className="space-y-4 sm:space-y-6 text-gray-300 leading-relaxed text-sm sm:text-base md:text-lg">
               <p>
-                Founded in <span className="text-amber-300 font-bold">1975</span> by a group of passionate football enthusiasts in the heart of Accra, <span className="text-amber-300 font-semibold">Salami Football Club</span> began as a modest community team with big dreams. What started in dusty neighborhood pitches has evolved into one of Ghana's most celebrated football institutions.
+                Founded in <span className="text-amber-300 font-bold">1975</span> by a group of passionate football enthusiasts in the heart of Accra, <span className="text-amber-300 font-semibold">Salami Football Club</span> began as a modest community team with big dreams. What started in dusty neighborhood pitches has evolved into one of Ghana&lsquo;s most celebrated football institutions.
               </p>
 
               <p>
-                The club's name, "Salami," was inspired by the founder's vision of creating a team that would be as essential and beloved as the popular delicacy—bringing people together across all backgrounds. This philosophy of unity and excellence has remained at the core of our identity for nearly five decades.
+                The club&lsquo;s name, &apos;Salami,&apos; was inspired by the founder&alpos;s vision of creating a team that would be as essential and beloved as the popular delicacy—bringing people together across all backgrounds. This philosophy of unity and excellence has remained at the core of our identity for nearly five decades.
               </p>
 
               {/* Timeline Grid */}
@@ -114,7 +114,7 @@ export default function ManagementClient() {
               </p>
 
               <p className="border-l-4 border-amber-300 pl-4 sm:pl-6 italic bg-purple-900/20 py-3 sm:py-4 rounded text-xs sm:text-sm md:text-base">
-                "More than just a football club, Salami FC is a family, a movement, and a symbol of what passion and perseverance can achieve. We don't just play football—we inspire generations."
+                &alquot;More than just a football club, Salami FC is a family, a movement and a symbol of what passion and perseverance can achieve. We don&apos;t just play football—we inspire generations.&alquot;
               </p>
             </div>
           </motion.div>

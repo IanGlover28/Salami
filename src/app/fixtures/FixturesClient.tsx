@@ -162,7 +162,7 @@ const MatchCard = ({ match, index }: { match: Match; index: number }) => {
     const isUpcoming = match.status === "upcoming";
     const isWin = match.result && match.result.ourScore > match.result.opponentScore;
     const isLoss = match.result && match.result.ourScore < match.result.opponentScore;
-    const isDraw = match.result && match.result.ourScore === match.result.opponentScore;
+
 
     const cardBg = isUpcoming
         ? "bg-gradient-to-br from-purple-900/40 to-purple-950/40 border-purple-500/50"
