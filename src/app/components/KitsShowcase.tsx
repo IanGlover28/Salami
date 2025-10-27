@@ -1,154 +1,289 @@
-"use client";
+import { motion } from "framer-motion";
+import { ShoppingBag, Star, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useRouter } from "next/navigation";
 
-const kits = [
-  { id: 1, videoUrl: "/videos/home-kit.mp4" },
-  { id: 2, videoUrl: "/videos/away-kit.mp4" },
-  { id: 3, videoUrl: "/videos/gk-away-kit.mp4" },
-  { id: 4, videoUrl: "/videos/gk-home-kit.mp4" },
-  { id: 5, videoUrl: "/videos/third-kit.mp4" },
-];
-
-export default function KitsShowcase() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const router = useRouter();
+export default function KitPreviewSection() {
+  const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % kits.length);
-    }, 10000); 
-    return () => clearInterval(interval);
+    setMounted(true);
   }, []);
 
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % kits.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + kits.length) % kits.length);
+  const features = [
+    { id: 1, label: "Premium Fabric", icon: "✨" },
+    { id: 2, label: "Moisture-Wicking", icon: "💧" },
+    { id: 3, label: "Official Crest", icon: "🛡️" },
+    { id: 4, label: "Match-Day Quality", icon: "⚽" }
+  ];
 
-  const handleSlideClick = () => router.push("/kits");
-
-  const currentKit = kits[currentSlide];
+  // Fixed positions for particles to avoid hydration mismatch
+  const particlePositions = [
+    { top: 15, left: 20 },
+    { top: 35, left: 80 },
+    { top: 60, left: 10 },
+    { top: 75, left: 65 },
+    { top: 25, left: 45 },
+    { top: 85, left: 30 }
+  ];
 
   return (
-    <section className="py-20 px-6 bg-zinc-950">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative py-20 px-4 bg-gradient-to-b from-zinc-950 via-purple-950/30 to-zinc-950 overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute top-20 -left-20 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-20 -right-20 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.5, 0.3, 0.5],
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-          <div className="flex items-center justify-center mb-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-white">
-              2025 KITS COLLECTION
-            </h2>
-          </div>
-          <p className="text-gray-400 text-lg">
-            Click to explore our official kits and shop now
+          <motion.div
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, type: "spring" }}
+            className="inline-block mb-4 px-6 py-2 bg-gradient-to-r from-purple-600/20 to-amber-600/20 border border-purple-500/30 rounded-full"
+          >
+            <span className="text-amber-300 font-semibold text-sm uppercase tracking-wider">
+              New Season Collection
+            </span>
+          </motion.div>
+          
+          <h2 className="text-4xl md:text-6xl font-bold mb-4">
+            <span className="bg-gradient-to-r from-purple-400 via-purple-300 to-amber-300 bg-clip-text text-transparent">
+              2025 Home Kit
+            </span>
+          </h2>
+          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+            Experience the perfect blend of tradition and innovation
           </p>
         </motion.div>
 
-        {/* Slideshow */}
-        <div className="relative">
-          <div
-            onClick={handleSlideClick}
-            className="relative h-[400px] md:h-[600px] bg-black rounded-2xl overflow-hidden cursor-pointer group"
+        {/* Main Content Grid */}
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left - Kit Showcase */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative"
           >
-            <AnimatePresence mode="wait">
+            <div className="relative aspect-square max-w-lg mx-auto">
+              {/* Rotating Glow Effect */}
               <motion.div
-                key={currentSlide}
-                initial={{ opacity: 0, scale: 1.05 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.98 }}
-                transition={{ duration: 0.7, ease: "easeInOut" }}
-                className="absolute inset-0"
+                className="absolute inset-0 bg-gradient-to-r from-purple-600 via-amber-500 to-purple-600 rounded-full blur-3xl opacity-30"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              />
+              
+              {/* Kit Image Container */}
+              <motion.div
+                className="relative z-10 bg-gradient-to-br from-purple-900/40 to-amber-900/40 rounded-3xl overflow-hidden border-2 border-purple-600/50 shadow-2xl"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
               >
-                <video
-                  key={currentKit.id}
-                  src={currentKit.videoUrl}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-full object-contain transition-all duration-700 group-hover:scale-105"
+                {/* Replace with actual kit image */}
+                <img
+                  src="/team/player-1.jpeg"
+                  alt="Salami FC 2025 Home Kit"
+                  className="w-full h-full object-cover"
                 />
+                
+                {/* Floating Price Tag */}
+                <motion.div
+                  initial={{ scale: 0, rotate: -12 }}
+                  whileInView={{ scale: 1, rotate: -12 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5, type: "spring" }}
+                  className="absolute top-6 right-6 bg-amber-300 text-black px-6 py-3 rounded-2xl shadow-xl transform rotate-[-12deg]"
+                >
+                  <div className="text-sm font-semibold">Starting at</div>
+                  <div className="text-2xl font-bold">GH₵ 350</div>
+                </motion.div>
 
-                {/* Overlay for darkening video slightly */}
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-all duration-500" />
-               
+                {/* Rating Badge */}
+                <motion.div
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.7, type: "spring" }}
+                  className="absolute bottom-6 left-6 bg-black/80 backdrop-blur-sm px-4 py-2 rounded-xl border border-purple-500/30"
+                >
+                  <div className="flex items-center gap-2">
+                    <div className="flex">
+                      {[...Array(5)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="w-4 h-4 fill-amber-300 text-amber-300"
+                        />
+                      ))}
+                    </div>
+                    <span className="text-white text-sm font-semibold">4.9</span>
+                  </div>
+                </motion.div>
               </motion.div>
-            </AnimatePresence>
 
-            {/* Navigation Arrows */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                prevSlide();
-              }}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-amber-300 text-white hover:text-black p-3 md:p-4 rounded-full transition-all duration-300 z-30"
-              aria-label="Previous kit"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                nextSlide();
-              }}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/70 hover:bg-amber-300 text-white hover:text-black p-3 md:p-4 rounded-full transition-all duration-300 z-30"
-              aria-label="Next kit"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
-
-            {/* Slide Indicators */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2 z-30">
-              {kits.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setCurrentSlide(index);
+              {/* Floating Particles */}
+              {mounted && particlePositions.map((pos, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-2 h-2 bg-amber-400 rounded-full"
+                  style={{
+                    top: `${pos.top}%`,
+                    left: `${pos.left}%`,
                   }}
-                  className={`h-3 rounded-full transition-all duration-300 ${
-                    index === currentSlide
-                      ? "bg-purple-300 w-8"
-                      : "bg-white/40 hover:bg-white/80 w-3"
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
+                  animate={{
+                    y: [-20, 20, -20],
+                    opacity: [0, 1, 0],
+                  }}
+                  transition={{
+                    duration: 3 + (i * 0.3),
+                    repeat: Infinity,
+                    delay: i * 0.3,
+                  }}
                 />
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          {/* Slide Counter */}
+          {/* Right - Features & CTA */}
           <motion.div
-            className="absolute top-4 right-4 bg-black/70 backdrop-blur-sm px-4 py-2 rounded-full text-white font-semibold z-30"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="space-y-8"
           >
-            {currentSlide + 1} / {kits.length}
+            {/* Features Grid */}
+            <div className="grid grid-cols-2 gap-4">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={feature.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  whileHover={{ scale: 1.05 }}
+                  onHoverStart={() => setHoveredFeature(feature.id)}
+                  onHoverEnd={() => setHoveredFeature(null)}
+                  className={`p-6 rounded-2xl border-2 transition-all duration-300 cursor-pointer ${
+                    hoveredFeature === feature.id
+                      ? "bg-gradient-to-br from-purple-600/30 to-amber-600/30 border-amber-400"
+                      : "bg-zinc-900/50 border-purple-700/30"
+                  }`}
+                >
+                  <div className="text-4xl mb-3">{feature.icon}</div>
+                  <h3 className="text-white font-bold text-sm">{feature.label}</h3>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Description */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="bg-zinc-900/50 border border-purple-700/30 rounded-2xl p-6"
+            >
+              <h3 className="text-xl font-bold text-white mb-3">
+                Wear Your Pride
+              </h3>
+              <p className="text-gray-300 leading-relaxed">
+                Our iconic purple home jersey with amber accents represents more than just a kit—it's a symbol of our community's passion and pride. Engineered with premium breathable fabric and moisture-wicking technology for ultimate comfort.
+              </p>
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <motion.a
+              href="/kits"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex-1 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-purple-600/30"
+              >
+                <ShoppingBag className="w-5 h-5" />
+                <span>Shop Now</span>
+              </motion.a>
+              
+              <motion.a
+              href="/kits"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex-1 bg-amber-300 hover:bg-amber-400 text-black font-bold py-4 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2"
+              >
+                <span>View Collection</span>
+                <ArrowRight className="w-5 h-5" />
+              </motion.a>
+            </div>
+
+            {/* Trust Indicators */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+              className="flex items-center justify-center gap-8 text-gray-400 text-sm pt-4"
+            >
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+                <span>In Stock</span>
+              </div>
+              <div>⚡ Fast Delivery</div>
+              <div>✓ Authentic Quality</div>
+            </motion.div>
           </motion.div>
         </div>
 
-        {/* CTA */}
+        {/* Bottom Stats Bar */}
         <motion.div
-          className="text-center mt-10"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
           viewport={{ once: true }}
+          transition={{ delay: 0.8 }}
+          className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 max-w-3xl mx-auto"
         >
-          <button
-            onClick={handleSlideClick}
-            className="bg-purple-700 hover:bg-purple-950 text-white font-bold px-10 py-4 rounded-full text-lg transition-all duration-300 inline-flex items-center space-x-2"
-          >
-            <span>Buy Now</span>
-          </button>
+          {[
+            { label: "Happy Fans", value: "2,450+" },
+            { label: "5-Star Reviews", value: "245" },
+            { label: "Years of Pride", value: "10+" },
+          ].map((stat, index) => (
+            <motion.div
+              key={index}
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.9 + index * 0.1, type: "spring" }}
+              className="text-center p-6 bg-zinc-900/50 border border-purple-700/30 rounded-2xl"
+            >
+              <div className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-amber-300 bg-clip-text text-transparent mb-2">
+                {stat.value}
+              </div>
+              <div className="text-gray-400 text-sm">{stat.label}</div>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>

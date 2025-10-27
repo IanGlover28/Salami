@@ -33,7 +33,7 @@ const newsFeed: NewsItem[] = [
     video: "/videos/news00.mp4",
     poster: "/staff6.jpeg",
     timeAgo: "1 day ago",
-    date: "19/10/2025",
+    date: "9/02/2025",
     category: "MEDIA INTERVIEW",
   },
   {
@@ -42,7 +42,7 @@ const newsFeed: NewsItem[] = [
     video: "/ad.mp4",
     poster: "/team/team2.jpeg", 
     timeAgo: "3 days ago",
-    date: "19/10/2025",
+    date: "29/05/2025",
     category: "TRAINING SESSION",
   },
   {

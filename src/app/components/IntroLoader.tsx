@@ -34,7 +34,7 @@ export default function IntroLoader({ children }: { children: React.ReactNode })
               className="relative w-64 h-64"
             >
               <Image
-                src="/Salami.png"
+                src="/salami.png"
                 alt="Salami FC Logo"
                 fill
                 className="object-contain"

@@ -91,12 +91,14 @@ const kits = [
   },
 ];
 
+
 export default function KitsClient() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedSize, setSelectedSize] = useState("M");
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const ownerPhoneNumber = "+23327089200";
+  
 
   useEffect(() => {
     if (!isAutoPlaying) return;
@@ -140,13 +142,78 @@ export default function KitsClient() {
             <div className="flex items-center justify-center mt-5">
 
             </div>
-            <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto">
+            <p className="text-lg font-extrabold md:text-xl text-gray-200 max-w-3xl mx-auto">
               Wear your pride. Official Salami FC kits for the 2025 season.
               Premium quality, authentic designs.
             </p>
           </motion.div>
         </div>
       </section>
+
+
+       {/* Players Launch Section */}
+      <section className="py-16 md:py-24 px-4 bg-gradient-to-b from-purple-950/20 to-zinc-950">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-amber-300 bg-clip-text text-transparent">
+              2025 Home Kit Launch
+            </h2>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+              Our squad proudly unveils the new season's colors
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            {[1, 2, 3, 4 ].map((player, index) => (
+              <motion.div
+                key={player}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ scale: 1.05, y: -8 }}
+                className="relative group cursor-pointer"
+              >
+                <div className="aspect-[3/4] bg-gradient-to-br from-purple-900/40 to-amber-900/40 rounded-xl overflow-hidden border-2 border-purple-700/30 group-hover:border-amber-300 transition-all duration-300">
+                  {/* Player image */}
+                  <img 
+                    src={`/team/player-${player}.jpeg`}
+                    alt={`Salami FC Player ${player}`}
+                    className="w-full h-full object-cover"
+                  />
+                  
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* Player Number Badge */}
+                  <div className="absolute top-3 right-3 bg-amber-300 text-black font-bold w-10 h-10 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                    {player}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="text-center mt-12"
+          >
+            <p className="text-gray-400 italic">
+              "Wearing the badge with honor - representing our community with pride"
+            </p>
+          </motion.div>
+        </div>
+      </section>
+      
 
       {/* Video Slideshow Section */}
       <section className="py-12 md:py-16 px-4 bg-zinc-950">

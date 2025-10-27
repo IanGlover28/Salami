@@ -167,7 +167,7 @@ const ContentBlock = ({ block }: { block: ArticleContent }) => {
     case 'image':
       return (
         <div className="my-8 w-full max-w-4xl mx-auto">
-          <Image src={block.content} alt={block.source ?? "Salami FC image"} className="w-full h-auto object-cover rounded-lg shadow-xl" />
+          <Image src={block.content} alt={block.source ?? "Salami FC image"} className="w-full h-auto object-cover rounded-lg shadow-xl" width={600} height={800} />
           {block.source && (
             <p className="mt-2 text-center text-sm text-gray-500">{block.source}</p>
           )}
@@ -254,6 +254,8 @@ export default function ArticleClientPage({ currentArticleId }: ArticleClientPag
                 src={article.image}
                 alt={`Featured image for ${article.title}`}
                 className="w-full h-auto object-cover rounded-lg shadow-md aspect-[4/3] lg:aspect-[3/4]"
+                width={600}
+                height={800}
               />
             </div>
           </div>
@@ -292,6 +294,8 @@ export default function ArticleClientPage({ currentArticleId }: ArticleClientPag
                     src={story.image}
                     alt={story.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    width={600}
+                    height={400}
                   />
                 </div>
                 <div className="p-4">

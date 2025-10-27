@@ -173,6 +173,7 @@ export default function MatchHeroSection() {
       </div>
 
       {/* Tickets Button */}
+      
       <button className="w-full bg-gray-900 hover:bg-black text-white px-6 py-4 font-extrabold text-sm tracking-widest transition-colors flex-shrink-0">
         {isLastMatch ? "VIEW FULL STORY" : "GET TICKETS"}
       </button>
