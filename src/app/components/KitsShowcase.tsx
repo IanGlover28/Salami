@@ -215,7 +215,7 @@ export default function KitPreviewSection() {
                 Wear Your Pride
               </h3>
               <p className="text-gray-300 leading-relaxed">
-                Our iconic purple home jersey with amber accents represents more than just a kit—it's a symbol of our community's passion and pride. Engineered with premium breathable fabric and moisture-wicking technology for ultimate comfort.
+                Our iconic purple home jersey with amber accents represents more than just a kit. it&apos;s a symbol of our community&apos;s passion and pride. Engineered with premium breathable fabric and moisture-wicking technology for ultimate comfort.
               </p>
             </motion.div>
 
