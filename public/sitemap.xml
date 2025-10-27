@@ -6,7 +6,7 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://salamirangerfc.com/</loc>
+    <loc>https://salamirangersfc.com/</loc>
     <lastmod>2025-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -14,7 +14,7 @@
 
   <!-- News/Latest -->
   <url>
-    <loc>https://salamirangerfc.com/latest</loc>
+    <loc>https://salamirangersfc.com/latest</loc>
     <lastmod>2025-10-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
@@ -22,7 +22,7 @@
 
   <!-- Store/Kits -->
   <url>
-    <loc>https://salamirangerfc.com/kits</loc>
+    <loc>https://salamirangersfc.com/kits</loc>
     <lastmod>2025-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -30,7 +30,7 @@
 
   <!-- Fixtures -->
   <url>
-    <loc>https://salamirangerfc.com/fixtures</loc>
+    <loc>https://salamirangersfc.com/fixtures</loc>
     <lastmod>2025-10-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -38,7 +38,7 @@
 
   <!-- Management -->
   <url>
-    <loc>https://salamirangerfc.com/Management</loc>
+    <loc>https://salamirangersfc.com/Management</loc>
     <lastmod>2025-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -46,7 +46,7 @@
 
   <!-- Team/Players -->
   <url>
-    <loc>https://salamirangerfc.com/team</loc>
+    <loc>https://salamirangersfc.com/team</loc>
     <lastmod>2025-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -54,7 +54,7 @@
 
   <!-- About Salami -->
   <url>
-    <loc>https://salamirangerfc.com/salami</loc>
+    <loc>https://salamirangersfc.com/salami</loc>
     <lastmod>2025-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -62,7 +62,7 @@
 
   <!-- Sponsorship -->
   <url>
-    <loc>https://salamirangerfc.com/sponsorship</loc>
+    <loc>https://salamirangersfc.com/sponsorship</loc>
     <lastmod>2025-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -70,7 +70,7 @@
 
   <!-- Sign Up -->
   <url>
-    <loc>https://salamirangerfc.com/signup</loc>
+    <loc>https://salamirangersfc.com/signup</loc>
     <lastmod>2025-10-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
