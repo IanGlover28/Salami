@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronLeft,
@@ -165,7 +166,7 @@ export default function KitsClient() {
               2025 Home Kit Launch
             </h2>
             <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-              Our squad proudly unveils the new season's colors
+              Our squad proudly unveils the new season&apos;s colors
             </p>
           </motion.div>
 
@@ -182,10 +183,12 @@ export default function KitsClient() {
               >
                 <div className="aspect-[3/4] bg-gradient-to-br from-purple-900/40 to-amber-900/40 rounded-xl overflow-hidden border-2 border-purple-700/30 group-hover:border-amber-300 transition-all duration-300">
                   {/* Player image */}
-                  <img 
+                  <Image 
                     src={`/team/player-${player}.jpeg`}
                     alt={`Salami FC Player ${player}`}
                     className="w-full h-full object-cover"
+                    width={300}
+                    height={400}
                   />
                   
                   {/* Overlay */}
@@ -208,7 +211,7 @@ export default function KitsClient() {
             className="text-center mt-12"
           >
             <p className="text-gray-400 italic">
-              "Wearing the badge with honor - representing our community with pride"
+              &lsquo;Wearing the badge with honor - representing our community with pride&lsquo;
             </p>
           </motion.div>
         </div>

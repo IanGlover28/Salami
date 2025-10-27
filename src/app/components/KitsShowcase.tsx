@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { ShoppingBag, Star, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -105,10 +106,12 @@ export default function KitPreviewSection() {
                 transition={{ duration: 0.3 }}
               >
                 {/* Replace with actual kit image */}
-                <img
+                <Image
                   src="/team/player-1.jpeg"
                   alt="Salami FC 2025 Home Kit"
                   className="w-full h-full object-cover"
+                  width={300}
+                  height={400}  
                 />
                 
                 {/* Floating Price Tag */}
