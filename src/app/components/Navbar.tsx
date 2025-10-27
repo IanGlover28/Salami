@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,12 +10,23 @@ const navLinks = [
   { name: "Store", path: "/kits" },
   { name: "Fixtures", path: "/fixtures" },
   { name: "Management", path: "/Management" },
-  // { name: "Sponsorships", path: "/sponsorship" },
   { name: "Team", path: "/team" },
 ];
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [menuOpen]);
 
   return (
     <header className="fixed top-0 left-0 w-full z-50">
@@ -38,7 +49,7 @@ export default function Navbar() {
 
       {/* 🟡 Navbar */}
       <motion.nav
-        className="bg-amber-400  flex justify-between items-center px-6 md:px-12 py-3 shadow-lg backdrop-blur-lg"
+        className="bg-amber-400 flex justify-between items-center px-6 md:px-12 py-3 shadow-lg backdrop-blur-lg"
         initial={{ y: -60 }}
         animate={{ y: 0 }}
         transition={{ type: "spring", stiffness: 80 }}
@@ -80,44 +91,110 @@ export default function Navbar() {
 
         {/* 📱 Mobile Menu Toggle */}
         <button
-          className="md:hidden focus:outline-none text-purple-900"
+          className="md:hidden focus:outline-none text-purple-900 z-50 relative"
           onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
         >
           {menuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
-
-        {/* 📱 Mobile Dropdown Menu */}
-        <AnimatePresence>
-          {menuOpen && (
-            <motion.div
-              className="absolute top-full left-0 w-full bg-amber-400 flex flex-col items-center space-y-6 py-8 text-lg border-t border-purple-700/20 max-h-[80vh] overflow-y-auto"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
-            >
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.path}
-                  className="hover:text-purple-950 font-semibold transition-all duration-300"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ))}
-
-              <Link
-                href="/"
-                className="bg-purple-700 text-white font-semibold px-6 py-2 rounded-full hover:bg-violet-950 transition-all duration-300"
-                onClick={() => setMenuOpen(false)}
-              >
-                Sign Up
-              </Link>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </motion.nav>
+
+      {/* 📱 Mobile Sliding Sidebar */}
+      <AnimatePresence>
+        {menuOpen && (
+          <>
+            {/* Overlay/Backdrop */}
+            <motion.div
+              className="fixed inset-0 bg-black/70 backdrop-blur-sm md:hidden z-40"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              onClick={() => setMenuOpen(false)}
+            />
+
+            {/* Sliding Sidebar Panel */}
+            <motion.div
+              className="fixed top-0 right-0 h-full w-[85%] max-w-[320px] bg-gradient-to-b from-purple-900 via-purple-950 to-black shadow-2xl md:hidden z-50 overflow-y-auto"
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{
+                type: "spring",
+                damping: 30,
+                stiffness: 300,
+              }}
+            >
+              <div className="flex flex-col h-full">
+                {/* Sidebar Header */}
+                <div className="p-6 border-b border-purple-700/40">
+                  <div className="flex items-center justify-between mb-4">
+                    <Image
+                      src="/salami.png"
+                      alt="Salami FC Logo"
+                      width={90}
+                      height={35}
+                      className="object-contain"
+                    />
+                    <button
+                      onClick={() => setMenuOpen(false)}
+                      className="text-white hover:text-amber-400 transition-colors"
+                      aria-label="Close menu"
+                    >
+                      <X size={24} />
+                    </button>
+                  </div>
+                  <p className="text-gray-400 text-xs">
+                    Passion. Pride. Performance.
+                  </p>
+                </div>
+
+                {/* Navigation Links */}
+                <nav className="flex-1 px-4 py-6">
+                  <ul className="space-y-2">
+                    {navLinks.map((link, index) => (
+                      <motion.li
+                        key={link.name}
+                        initial={{ opacity: 0, x: 50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                          delay: index * 0.08,
+                          duration: 0.3,
+                        }}
+                      >
+                        <Link
+                          href={link.path}
+                          className="block py-3 px-4 text-white font-semibold text-base rounded-xl hover:bg-purple-800/60 hover:text-amber-400 transition-all duration-300 active:scale-95"
+                          onClick={() => setMenuOpen(false)}
+                        >
+                          {link.name}
+                        </Link>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </nav>
+
+                {/* Sidebar Footer */}
+                <div className="p-6 border-t border-purple-700/40">
+                  <Link
+                    href="/"
+                    className="block w-full bg-amber-400 text-purple-900 font-bold text-center px-6 py-3 rounded-full hover:bg-amber-500 active:scale-95 transition-all duration-300 shadow-lg"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    Sign Up
+                  </Link>
+
+                  {/* Footer Info */}
+                  <div className="mt-6 text-center text-gray-500 text-xs space-y-1">
+                    <p>© 2025 Salami Rangers FC</p>
+                    <p>All Rights Reserved</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
