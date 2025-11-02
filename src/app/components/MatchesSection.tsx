@@ -24,16 +24,16 @@ const matchData = {
   },
   nextMatch: {
     competition: "ANDFA D3 League",
-    location: "Darkuman Okwahu Part",
+    location: "Darkuman Okwahu Park",
     date: "2 Nov 2025",
     time: "2:00 PM GMT",
     ourTeamName: "Salami Rangers FC",
     ourTeamLogo: "/salami.png",
-    opponentName: "Overcomers Soccer Club",
-    opponentLogo: "/olympics.png",
-    reportTitle: "UPCOMING: SALAMI RANGERS FC vs Overcomers Soccer Club",
+    opponentName: "Overcomers Football Club",
+    opponentLogo: "/overcomers.png",
+    reportTitle: "UPCOMING: SALAMI RANGERS FC vs Overcomers Football Club",
     reportSummary:
-      "A crucial League Cup fixture as we aim to progress to the next round. Overcomers Soccer Club comes as formidable opponents.",
+      "A crucial League Cup fixture as we aim to progress to the next round. Overcomers Football Club comes as formidable opponents.",
     reportDate: "Coming Up Soon",
   },
 };
