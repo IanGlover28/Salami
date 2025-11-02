@@ -45,12 +45,12 @@ const allMatches: Match[] = [
     {
         id: 1,
         status: "upcoming",
-        opponent: "Phoenix United",
-        opponentLogo: "/olympics.png",
-        date: "Sat, Oct 26",
-        time: "3:00 PM GMT",
-        location: "Home Stadium",
-        competition: "Division 3 League Cup Round 3",
+        opponent: "Overcomers Football Club",
+        opponentLogo: "/overcomers.png",
+        date: "Sun, 02 Nov 2025",
+        time: "2:00 PM GMT",
+        location: "Darkuman Okwahu Park",
+        competition: "ANDFA D3 League",
     },
     {
         id: 2,
@@ -414,7 +414,7 @@ export default function FixturesClient() {
                     SALAMI FC MATCH HUB
                 </h1>
                 <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
-                    Stay up-to-date with all our upcoming fixtures, past results, and the full squad roster.
+                    Stay up-to-date with all our upcoming fixtures, past results and the full squad roster.
                 </p>
             </motion.div>
 
