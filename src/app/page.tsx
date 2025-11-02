@@ -7,11 +7,13 @@ import MatchesSection from "./components/MatchesSection";
 import KitsShowcase from "./components/KitsShowcase";
 import Sponsors from "./components/Sponsors";
 import IntroLoader from "./components/IntroLoader";
+import MatchdayPopup from "./components/MatchdayPopup";
 
 export default function Home() {
   return (
     <div className="overflow-hidden">
       {/* 🏁 Hero Section */}
+      <MatchdayPopup />
       <IntroLoader>
       <Hero />
   {/* 🏟️ Matches */}
