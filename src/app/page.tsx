@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       {/* 🏁 Hero Section */}
-      <MatchdayPopup />
+      {/* <MatchdayPopup /> */}
       <IntroLoader>
       <Hero />
   {/* 🏟️ Matches */}
