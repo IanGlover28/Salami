@@ -18,15 +18,15 @@ type NewsItem = {
 
 
 const newsFeed: NewsItem[] = [
-  // {
-  //   id: 1,
-  //   title: "REACTION: IMPRESSIVE GOOAL FROM SAMMY",
-  //   video: "/videos/match00.mp4",
-  //   poster: "/match00.png",
-  //   timeAgo: "10 hours ago", 
-  //   date: "19/10/2025",
-  //   category: "MATCH REACTION",
-  // },
+  {
+    id: 1,
+    title: " Dadzie: We'll Bounce Back ",
+    video: "/ad.mp4",
+    poster: "/dadzie.jpg",
+    timeAgo: "10 hours ago", 
+    date: "17/12/2025",
+    category: "POST-MATCH INTERVIEW",
+  },
   {
     id: 2,
     title: "MEDIA: SALAMI FC's MEDIA TEAM INTERVIEW",

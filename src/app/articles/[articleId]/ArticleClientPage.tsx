@@ -32,38 +32,38 @@ export type NewsItem = {
 export const allArticles: NewsItem[] = [
   {
     id: 1,
-    title: "REACTION: IMPRESSIVE GOOAL FROM SAMMY",
+    title: "Dadzie: We'll Bounce Back ",
     author: "LEWIS WALKER",
-    date: "18 Oct 25",
-    category: "MATCH REACTION",
-    image: "/match00.png", // Placeholder
+    date: "13 Dec 25",
+    category: "POST-MATCH INTERVIEW",
+    image: "/dadzie.jpg", // Placeholder
     content: [
      { 
         type: 'paragraph', 
-        content: "Salami FC striker Sammy delivered an impressive, match-winning goal against their rivals yesterday, securing a crucial three points and lifting the team's spirit heading into the final stages of the season. The stunning strike from outside the box left the keeper with no chance." 
+        content: "Captain Emmanuel Dadzie believes his side will win against Corinthians FC this weekend to bounce back from Saturday's defeat." 
       },
       { 
         type: 'quote', 
-        content: "It just felt right. The ball came to me, I had a look up, and thankfully, it flew into the top corner. That's what training is for—those moments when you need a piece of magic.", 
-        source: 'Sammy, speaking after the final whistle' 
+        content: "Honestly we were very disappointed with the results on Saturday, I think the red card was harsh and came to early, but the team has bounced back many times and that is what we will be looking to do on Sunday", 
+        source: 'Captain Dadzie, speaking after the final whistle' 
       },
       { 
         type: 'paragraph', 
-        content: "The goal came in the 78th minute and was immediately hailed by commentators as a Goal of the Season contender. Manager Antonio praised Sammy's quality and the team's overall resilience." 
+        content: "The team lost 3:2 away to Jinx Breakers in the Accra North District Division Three League on Saturday, The 18-year-old who was a delight to watch in the game against Jinx Breakers Insists he has a lot of faith in his team-mates and believes a win against Corinthians is possible on Sunday."
       },
       { 
         type: 'image', 
         content: "/match00.png", // Using the same image for the in-story picture
-        source: 'Sammy celebrates his incredible strike' 
+        source: 'Caption Dadzie speaks to the media after the game' 
       },
       { 
         type: 'quote', 
-        content: "Sammy is pure quality. We always knew he had that in his locker, but to pull it out in a game of this magnitude shows his class. This win is for the fans.", 
-        source: 'Manager Antonio' 
+        content: "He added : We created a lot of chances but unfortunately things didn't go well. It’s part of the game so we are going to work hard with the aim of getting back to winning ways and I think you will see that on Sunday against Corinthians, I have a lot of faith in this team", 
+        source: 'Captain Dadzie' 
       },
       { 
         type: 'paragraph', 
-        content: "The victory puts Salami FC in a strong position on the league table, shifting the focus to maintaining momentum for the upcoming fixtures." 
+        content: "Salami Rangers will host Corinthians at the Darkuman Okwahu Park on Sunday at 2PM in week 8 of the ANDFA D3 League." 
       },
     ],
   },

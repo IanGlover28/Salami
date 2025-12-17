@@ -16,7 +16,7 @@ const matchData = {
     score: "3 - 2",
     reportTitle: "MATCH REPORT: SALAMI RANGERS FC 2-3 JINX BREAKERS",
     reportSummary:
-      "JINX BREAKERS won 3-2 against SALAMI RANGERS FC this afternoon as the  Division D3 league resumed following the international break.",
+      "JINX BREAKERS won 3-2 against SALAMI RANGERS FC this afternoon as the ANDFA D3 league this afternoon at the Darkuman Okwahu Park.",
     reportDate: "13 DEC 25",
     possession: "N/A",
     shotsOnTarget: "N/A",
@@ -98,7 +98,7 @@ export default function MatchHeroSection() {
         </div>
 
         {/* Scoreboard */}
-        <div className="flex items-center justify-between px-8 py-8 border-y border-gray-300 bg-gray-50 rounded-lg my-4">
+        <div className="flex items-center justify-between px-2 sm:px-8 py-6 border-y border-gray-300 bg-gray-50 rounded-lg my-4">
           {/* Team 1 */}
           <div className="flex flex-col items-center space-y-2">
             <Image
