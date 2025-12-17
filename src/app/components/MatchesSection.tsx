@@ -16,7 +16,7 @@ const matchData = {
     score: "3 - 2",
     reportTitle: "MATCH REPORT: SALAMI RANGERS FC 2-3 JINX BREAKERS",
     reportSummary:
-      "JINX BREAKERS won 3-2 against SALAMI RANGERS FC this afternoon as the ANDFA D3 league this afternoon at the Darkuman Okwahu Park.",
+      "JINX BREAKERS won 3-2 against SALAMI RANGERS FC this afternoon at the Darkuman Okwahu Park in the ANDFA D3 league.",
     reportDate: "13 DEC 25",
     possession: "N/A",
     shotsOnTarget: "N/A",
