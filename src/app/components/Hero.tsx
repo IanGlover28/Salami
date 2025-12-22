@@ -91,7 +91,7 @@ export default function Hero() {
         {/* Header Section: RANGERSTV LATEST & Navigation */}
         <div className="flex justify-between items-center mb-6 text-white">
           <h2 className="text-3xl font-light tracking-wider">
-            SALAMITV LATEST
+            SALAMITV
           </h2>
           <div className="flex items-center space-x-4">
             {/* Slideshow Navigation Arrows */}
@@ -113,7 +113,7 @@ export default function Hero() {
             </div>
             {/* 'ALL VIDEOS' Link */}
             <Link href="/videos" className="flex items-center text-white hover:text-gray-300 transition-colors group">
-              <span className="text-sm font-extrabold uppercase mr-1">ALL VIDEOS</span>
+              {/* <span className="text-sm font-extrabold uppercase mr-1">ALL VIDEOS</span> */}
               <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
             </Link>
           </div>

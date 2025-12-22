@@ -178,7 +178,7 @@ export default function Navbar() {
                 <div className="p-6 border-t border-purple-700/40">
                   <Link
                     href="/"
-                    className="block w-full bg-amber-400 text-purple-900 font-bold text-center px-6 py-3 rounded-full hover:bg-amber-500 active:scale-95 transition-all duration-300 shadow-lg"
+                    className="block w-full bg-amber-400 text-white-900 font-bold text-center px-6 py-3 rounded-full hover:bg-amber-500 active:scale-95 transition-all duration-300 shadow-lg"
                     onClick={() => setMenuOpen(false)}
                   >
                     Sign Up

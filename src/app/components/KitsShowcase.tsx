@@ -235,7 +235,7 @@ export default function KitPreviewSection() {
               href="/kits"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex-1 bg-amber-300 hover:bg-amber-400 text-black font-bold py-4 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2"
+                className="flex-1 bg-amber-300 hover:bg-amber-400 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2"
               >
                 <span>View Collection</span>
                 <ArrowRight className="w-5 h-5" />
