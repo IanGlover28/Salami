@@ -146,9 +146,10 @@ const ShareButtons = ({ article }: { article: NewsItem }) => {
   const [copied, setCopied] = useState(false);
 
   // Get the full article URL
-  const getArticleUrl = () => {
+   const getArticleUrl = () => {
     if (typeof window !== 'undefined') {
-      return window.location.href;
+      const baseUrl = window.location.origin;
+      return `${baseUrl}/articles/${article.id}`;
     }
     return '';
   };
