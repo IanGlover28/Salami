@@ -20,32 +20,33 @@ export type NewsItem = {
 // COMBINED/DUMMY DATA SOURCE
 // ******************************************************
 export const allArticles: NewsItem[] = [
-  {
+   {
     id: 1,
-    title: "REACTION: IMPRESSIVE GOOAL FROM SAMMY",
-    author: "LEWIS WALKER",
-    date: "18 Oct 25",
-    category: "MATCH REACTION",
-    image: "/leah_eddie_feature.jpg", // Placeholder
+    title: "Dadzie: We'll Bounce Back",
+    author: "Salami Media Team",
+    date: "13 Dec 25",
+    category: "POST-MATCH INTERVIEW",
+    image: "/dadzie.jpg",
     content: [
-      { type: 'paragraph', content: "Salami stiker Sammy delivered an impressive goal" },
-      { type: 'quote', content: "First of all, I had a concussion in pre-season...", source: 'Speaking to RangersTV' },
-      { type: 'paragraph', content: "The soleus tear turned out to be more severe than initially anticipated..." },
-      { type: 'image', content: "/leah_eddie_training.jpg", source: 'Leah Eddie during a training session' },
-      { type: 'paragraph', content: "“Just taking it day by day and seeing how it went, but it ended up being six or seven weeks, which we had to be careful..." },
-      { type: 'quote', content: "Touch wood, everything has been ok so far, and I’m back building up my minutes." },
-      { type: 'paragraph', content: "Reflecting on the mental battle, she touched upon the difficulty of being injured while simultaneously navigating a major career transition..." },
-      { type: 'paragraph', content: "“It was hard, I think, being away in Italy and trying to get minutes under your belt..." },
+      { type: 'paragraph', content: "Captain Emmanuel Dadzie believes his side will win..." },
+      { type: 'quote', content: "Honestly we were very disappointed...", source: "Captain Dadzie" },
+      { type: 'paragraph', content: "The team lost 3:2 away to Jinx Breakers..." },
+      { type: 'image', content: "/match00.png", source: "Dadzie speaks to the media" },
     ],
   },
   {
     id: 2,
-    title: "MATCH REACTION: IMPRESSIVE GOAL FROM SAMMY",
-    author: "RANGERS STAFF",
+    title: "MEDIA: SALAMI FC's MEDIA TEAM INTERVIEW",
+    author: "Salami Media Team",
     date: "19 Oct 25",
-    category: "MATCH REACTION",
-    image: "/match_reaction_sammy.jpg", // Placeholder
-    content: [{ type: 'paragraph', content: "Sammy scored a stunning long-range goal that secured the team's victory in the semi-finals. The manager praised the team's grit..." }],
+    category: "MEDIA INTERVIEW",
+    image: "/staff6.jpeg",
+    content: [
+      { type: 'paragraph', content: "The Salami FC Media Team sat down this week..." },
+      { type: 'quote', content: "It's a fast-paced environment...", source: "Sarah Jones, Head of Digital Media" },
+      { type: 'paragraph', content: "The team discussed their approach to engaging fans..." },
+      { type: 'image', content: "/staff6.jpeg", source: "The Salami FC Media Team hard at work" },
+    ],
   },
   {
     id: 3,
