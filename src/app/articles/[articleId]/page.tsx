@@ -1,7 +1,9 @@
+// src/app/articles/[articleId]/page.tsx
+
 import { allArticles } from "@/data/articles";
 import ArticleClientPage from "./ArticleClientPage";
 import Link from "next/link";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 interface ArticlePageProps {
   params: Promise<{
@@ -9,32 +11,45 @@ interface ArticlePageProps {
   }>;
 }
 
-
+// ✅ Generate dynamic metadata for social sharing
 export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
   const { articleId } = await params;
   const currentArticleId = parseInt(articleId);
   const article = allArticles.find((a) => a.id === currentArticleId);
 
+  // Default metadata if article not found
   if (!article) {
     return {
-      title: "Article Not Found - Salami FC",
-      description: "The article you are looking for does not exist.",
+      title: "Article Not Found | Salami FC",
+      description: "The requested article could not be found.",
     };
   }
 
+  // Get the first paragraph as description
+  const description = article.content
+    .find((block) => block.type === "paragraph")?.content
+    .slice(0, 160) || article.title;
 
-  const firstParagraph = article.content.find((block) => block.type === 'paragraph');
-  const description = firstParagraph?.content.slice(0, 160) || article.title;
-
-
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://salamirangersfc.com";
+  // Construct full URL for the article
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://salamirangersfc.com";
   const articleUrl = `${baseUrl}/articles/${article.id}`;
-  const imageUrl = `${baseUrl}${article.image}`;
+  
+  // Construct full URL for the image
+  // Ensure we have an absolute URL for social media crawlers
+  let imageUrl: string;
+  if (article.image.startsWith("http")) {
+    imageUrl = article.image;
+  } else {
+    // Remove leading slash if present to avoid double slashes
+    const imagePath = article.image.startsWith("/") ? article.image : `/${article.image}`;
+    imageUrl = `${baseUrl}${imagePath}`;
+  }
 
   return {
-    title: `${article.title} - Salami FC`,
+    title: `${article.title} | Salami FC`,
     description: description,
     
+    // Open Graph metadata (Facebook, WhatsApp, LinkedIn)
     openGraph: {
       title: article.title,
       description: description,
@@ -50,32 +65,29 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
       ],
       locale: "en_US",
       type: "article",
-      publishedTime: new Date(article.date).toISOString(),
+      publishedTime: article.date,
       authors: [article.author],
-      section: article.category,
+      tags: [article.category],
     },
 
-
+    // Twitter Card metadata
     twitter: {
       card: "summary_large_image",
       title: article.title,
       description: description,
       images: [imageUrl],
-      creator: "@SalamiFC",
-      site: "@SalamiFC",
+      creator: "@salamifc", // Replace with your actual Twitter handle
+      site: "@salamifc",
     },
 
-    robots: {
-      index: true,
-      follow: true,
-    },
+    // Additional metadata
     alternates: {
       canonical: articleUrl,
     },
   };
 }
 
-// ✅ Generate static params for all articles (optional but recommended for performance)
+// ✅ Optional: Generate static params for better performance
 export async function generateStaticParams() {
   return allArticles.map((article) => ({
     articleId: article.id.toString(),
